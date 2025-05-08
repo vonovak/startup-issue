@@ -1,0 +1,20 @@
+diff --git a/node_modules/react-native-startup-time/android/src/main/java/com/github/doomsower/RNStartupTimePackage.java b/node_modules/react-native-startup-time/android/src/main/java/com/github/doomsower/RNStartupTimePackage.java
+index ece389b..1cb1a7b 100644
+--- a/node_modules/react-native-startup-time/android/src/main/java/com/github/doomsower/RNStartupTimePackage.java
++++ b/node_modules/react-native-startup-time/android/src/main/java/com/github/doomsower/RNStartupTimePackage.java
+@@ -12,12 +12,13 @@ import java.util.Collections;
+ import java.util.List;
+
+ public class RNStartupTimePackage implements ReactPackage {
+-    private static final long START_MARK = SystemClock.uptimeMillis();
++    private long START_MARK = 0L;
+
+     private boolean enforceSingleInvocation;
+
+-    public RNStartupTimePackage() {
++    public RNStartupTimePackage(long START_MARK) {
+         this(true);
++        this.START_MARK = START_MARK;
+     }
+
+     /**

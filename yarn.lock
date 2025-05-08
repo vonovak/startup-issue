@@ -3473,7 +3473,7 @@ expo-web-browser@~14.1.6:
   resolved "https://registry.yarnpkg.com/expo-web-browser/-/expo-web-browser-14.1.6.tgz#26d66e641e6e96d155be6fa513e7e667a719a0b0"
   integrity sha512-/4P8eWqRyfXIMZna3acg320LXNA+P2cwyEVbjDX8vHnWU+UnOtyRKWy3XaAIyMPQ9hVjBNUQTh4MPvtnPRzakw==
 
-expo@~53.0.8:
+expo@53:
   version "53.0.8"
   resolved "https://registry.yarnpkg.com/expo/-/expo-53.0.8.tgz#281915262e4694103bfdd04816ade84d945af808"
   integrity sha512-5CQWayZFDKif++HwfI6ysRNfePYH3MOEZw5edQStQyoL2MehzlasZoICSYHzqptMdMFSt2RTM5Tqgn8L4wYmVg==
@@ -4561,9 +4561,9 @@ kleur@^3.0.3:
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
 lan-network@^0.1.4:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/lan-network/-/lan-network-0.1.5.tgz#e781889b7bd4dbedd9126fff3ceddd809a83c3ff"
-  integrity sha512-CV3k7l8jW0Z1b+G41tB7JInVyJEKQzh/YPl2v9uXpZMusp0aa+rh3OqG77xWuX7+eVBa8PsdTuMznTAssF4qwg==
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/lan-network/-/lan-network-0.1.6.tgz#098375edbb996bb6ca0cc597eff03ce45f1a2787"
+  integrity sha512-0qPYjNoD89v+bfhkIqFBYGBAof1xhxLqjX8bkNN1kQdP81UHpZw5TDXgEjwB+X2iCFGQmzF8TRmvg4vQcykyDA==
 
 leven@^3.1.0:
   version "3.1.0"
@@ -5672,7 +5672,12 @@ react-native-screens@~4.10.0:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
-react-native-web@~0.20.0:
+react-native-startup-time@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-startup-time/-/react-native-startup-time-2.1.0.tgz#55c503503c903a4668051a9b600d9b868597b932"
+  integrity sha512-cm014/ig/ddHEEiAKoxfTDxUwrs5gaoxKpAOnpMIuhW5yozLxhouDtkozD26TLQ2UcIgftowgaScPMeZnI1YYg==
+
+react-native-web@^0.20.0:
   version "0.20.0"
   resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.20.0.tgz#3fb0591999ed4b54d7822a2785547415e8a5c031"
   integrity sha512-OOSgrw+aON6R3hRosCau/xVxdLzbjEcsLysYedka0ZON4ZZe6n9xgeN9ZkoejhARM36oTlUgHIQqxGutEJ9Wxg==

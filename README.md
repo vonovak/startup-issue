@@ -1,50 +1,51 @@
 # Welcome to your Expo app 👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+necessary modifications steps:
 
-## Get started
+- run `npx patch-package`
 
-1. Install dependencies
+- modify the following files:
 
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```settings.gradle
+include ':react-native-startup-time'
+project(':react-native-startup-time').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-startup-time/android')
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+```app/build.gradle
+implementation project(':react-native-startup-time')
+```
 
-## Learn more
+```mainApplication.kt
+...
+// react-native-startup-time
+import com.github.doomsower.RNStartupTimePackage
+import android.os.SystemClock
 
-To learn more about developing your project with Expo, look at the following resources:
+class MainApplication : Application(), ReactApplication {
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+  companion object {
+    var START_MARK: Long = 0L
+  }
 
-## Join the community
+  override val reactNativeHost: ReactNativeHost = ReactNativeHostWrapper(
+        this,
+        object : DefaultReactNativeHost(this) {
+          override fun getPackages(): List<ReactPackage> {
+            val packages = PackageList(this).packages
+            // Packages that cannot be autolinked yet can be added manually here, for example:
+             packages.add(RNStartupTimePackage(START_MARK));
+            return packages
+          }
 
-Join our community of developers creating universal apps.
+          ...
+      }
+  )
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+  override fun onCreate() {
+    START_MARK = SystemClock.elapsedRealtime()
+    ...
+  }
+
+ ...
+}
+```
