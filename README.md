@@ -42,7 +42,7 @@ class MainApplication : Application(), ReactApplication {
   )
 
   override fun onCreate() {
-    START_MARK = SystemClock.elapsedRealtime()
+    START_MARK = SystemClock.uptimeMillis()
     ...
   }
 
